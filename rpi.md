@@ -1,98 +1,98 @@
-´ú¸Õ¦bRaspberry pi 3 ¤W¦w¸ËLAMP(Linux, Apache2, MySQL, PHP)¡A³]¸mªº¨BÆJ¦p¤U¡G
-1.¥ı§ó·s¤@¤U¨t²Î³nÅé
+ï»¿æ¸¬è©¦åœ¨Raspberry pi 3 ä¸Šå®‰è£LAMP(Linux, Apache2, MySQL, PHP)ï¼Œè¨­ç½®çš„æ­¥é©Ÿå¦‚ä¸‹ï¼š
+1.å…ˆæ›´æ–°ä¸€ä¸‹ç³»çµ±è»Ÿé«”
 sudo apt-get update
-2. ¦w¸Ëapache2 serverÁÙ¦³php
+2. å®‰è£apache2 serveré‚„æœ‰php
 sudo apt-get install apache2 php5 libapache2-mod-php5
-3. ¦w¸ËMySQL
+3. å®‰è£MySQL
 sudo apt-get install mysql-server mysql-client php5-mysql
-¹Lµ{¤¤·|¸ß°İMySQLºŞ²z­ûrootªº±K½X(­n¿é¤J¨â¦¸)
-4. ´ú¸Õ¥Îroot±b¸¹µn¤JMySQL
+éç¨‹ä¸­æœƒè©¢å•MySQLç®¡ç†å“¡rootçš„å¯†ç¢¼(è¦è¼¸å…¥å…©æ¬¡)
+4. æ¸¬è©¦ç”¨rootå¸³è™Ÿç™»å…¥MySQL
 mysql -u root -p
-5. ¦w¸Ëphpmyadmin
+5. å®‰è£phpmyadmin
 sudo apt-get install phpmyadmin
-¹Lµ{¤¤·|¸ß°İ­n¤£­n³]©wdbconfig-common¡A¿ïyes¤§«á·|¸ß°İMySQLªººŞ²z­û±K½X¡A¿é¤J¤§«á´N¥i¥H¦w¸Ë¦n¤F
-6. ±Nphpmyadmin¥[¤Japache2ªA°È¤¤
+éç¨‹ä¸­æœƒè©¢å•è¦ä¸è¦è¨­å®šdbconfig-commonï¼Œé¸yesä¹‹å¾Œæœƒè©¢å•MySQLçš„ç®¡ç†å“¡å¯†ç¢¼ï¼Œè¼¸å…¥ä¹‹å¾Œå°±å¯ä»¥å®‰è£å¥½äº†
+6. å°‡phpmyadminåŠ å…¥apache2æœå‹™ä¸­
 sudo nano /etc/apache2/apache2.conf
-¦b³Ì«á­±¥[¤J¤U­±³o¦æ¡G
+åœ¨æœ€å¾Œé¢åŠ å…¥ä¸‹é¢é€™è¡Œï¼š
 Include /etc/myadmin/apache.conf
-7.­«·s±Ò°Êapache2ªA°È
+7.é‡æ–°å•Ÿå‹•apache2æœå‹™
 sudo /etc/init.d/apache2 restart
-8. §ó§ï©ñºô­¶ªº/var/wwwÅv­­
+8. æ›´æ”¹æ”¾ç¶²é çš„/var/wwwæ¬Šé™
 sudo chown -R pi /var/www
-§ó§ï­º­¶¸ô®|¡G
-1.¦b/var/www/html¤º¥ı«Ø¥ß.htaccessÀÉ®×
+æ›´æ”¹é¦–é è·¯å¾‘ï¼š
+1.åœ¨/var/www/htmlå…§å…ˆå»ºç«‹.htaccessæª”æ¡ˆ
 nano /var/www/html/.htaccess
 DirectoryIndex index.html
-§ó¦h¸Ô²Ó³]©w°Ñ¦Ò¥H¤Uºô­¶¡G
+æ›´å¤šè©³ç´°è¨­å®šåƒè€ƒä»¥ä¸‹ç¶²é ï¼š
 http://support.unethost.com/knowledgebase.php?action=displayarticle&id=29
-2. §ó§ïapache2³]©wÀÉ
+2. æ›´æ”¹apache2è¨­å®šæª”
 sudo nano /etc/apache2/apache2.conf
-¥[¤J¥H¤U´X¦æ¡G
+åŠ å…¥ä»¥ä¸‹å¹¾è¡Œï¼š
 <Directory /var/www/html>
 AllowOverride All
 </Directory>
-3.­«·s±Ò°Êapache2ªA°È
+3.é‡æ–°å•Ÿå‹•apache2æœå‹™
 sudo service apache2 restart
 
-¬[³]LEMP(Linux, Nginx, MySQL, PHP)
-1.¬[³]Niginx(¥Îroot)
+æ¶è¨­LEMP(Linux, Nginx, MySQL, PHP)
+1.æ¶è¨­Niginx(ç”¨root)
 apt-get install nginx
-¥´¶}http://IP or DNS½T»{¯à¤£¯à¬İ¨ìNginx­º­¶
-2.¦w¸Ëphp5
+æ‰“é–‹http://IP or DNSç¢ºèªèƒ½ä¸èƒ½çœ‹åˆ°Nginxé¦–é 
+2.å®‰è£php5
 apt-get install php5-fpm php-mysql
-³]©wphp5-fpm
+è¨­å®šphp5-fpm
 nano /etc/php5/fpm/php.ini
 cgi.fix_pathinfo=0
-3.³]©wnginx.conf
+3.è¨­å®šnginx.conf
 nano /etc/nginx/nginx.conf
 worker_process 4;
 keepalive_timeout 2;
 nano /etc/nginx/sites-available/default
-§ä¨ìserver{ §âµù¸Ñ³£®³±¼
+æ‰¾åˆ°server{ æŠŠè¨»è§£éƒ½æ‹¿æ‰
 
 
-¦³ÃöDNSªA°È:
-¥Ø«e¨Ï¥Îno-ip´£¨Ñªºdns
-1.¦w¸Ëno-ip duc(¨Ï¥Îroot)
+æœ‰é—œDNSæœå‹™:
+ç›®å‰ä½¿ç”¨no-ipæä¾›çš„dns
+1.å®‰è£no-ip duc(ä½¿ç”¨root)
 cd /usr/local/src
 wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
 tar -xvf noip-duc-linux-tar.gz
 cd noip-2.1.9-1/
 make install
-¤¤¶¡·|­n¨D¿é¤J±b¸¹±K½XÁÙ¦³³]©w§ó·s´Á¶¡¡A«ØÄ³§ï¬°¤­¤ÀÄÁ
-2.«Ø¥ß¬d¸ß¥~³¡IPÀÉ®×
-«Ø¥ßshell script¤è«K¤§«á¥Îcrontab¶i¦æ±Æ¦¨
+ä¸­é–“æœƒè¦æ±‚è¼¸å…¥å¸³è™Ÿå¯†ç¢¼é‚„æœ‰è¨­å®šæ›´æ–°æœŸé–“ï¼Œå»ºè­°æ”¹ç‚ºäº”åˆ†é˜
+2.å»ºç«‹æŸ¥è©¢å¤–éƒ¨IPæª”æ¡ˆ
+å»ºç«‹shell scriptæ–¹ä¾¿ä¹‹å¾Œç”¨crontabé€²è¡Œæ’æˆ
 sudo nano ipcheck.sh
-¥[¤J¥H¤U¤º®e:
+åŠ å…¥ä»¥ä¸‹å…§å®¹:
 date > ip.txt
 curl icanhazip.com >> ip.txt
-¦sÀÉ«á­×§ïÅv­­
+å­˜æª”å¾Œä¿®æ”¹æ¬Šé™
 sudo chmod 777 ipcheck.sh
-´ú¸Õ°õ¦æ
+æ¸¬è©¦åŸ·è¡Œ
 bash ipcheck.sh
 cat ip.txt
-¦pªG¦³¸ê®Æ´N§¹¦¨¤F
-3.¦Û°Ê¤W¶Ç¥~³¡IP¨ìdropbox·í³Æ¥÷
-¥ı¤U¸üdropbox-upload-master(https://github.com/andreafabrizi/Dropbox-Uploader)
-¥Îftp¶Ç¨ì»İ­n¤W¶ÇIP¸ê®Æªº¥D¾÷
-¥ı§ó§ïdropbox-uploader.shªºÅv­­
+å¦‚æœæœ‰è³‡æ–™å°±å®Œæˆäº†
+3.è‡ªå‹•ä¸Šå‚³å¤–éƒ¨IPåˆ°dropboxç•¶å‚™ä»½
+å…ˆä¸‹è¼‰dropbox-upload-master(https://github.com/andreafabrizi/Dropbox-Uploader)
+ç”¨ftpå‚³åˆ°éœ€è¦ä¸Šå‚³IPè³‡æ–™çš„ä¸»æ©Ÿ
+å…ˆæ›´æ”¹dropbox-uploader.shçš„æ¬Šé™
 chmod 777 dropbox-uploader.sh 
-°õ¦ædropbox-uploader.sh
+åŸ·è¡Œdropbox-uploader.sh
 bash dropbox-uploader.sh
-³oÃä­n¿é¤Japp keyÁÙ¦³app secret ­n±qdropbox developer console¨ºÃä¨ú±o
-³Ì«á¬O½T»{dropboxÅª¨úªº¸ê®Æ½d³ò
-´ú¸Õ¤W¶ÇÀÉ®×
+é€™é‚Šè¦è¼¸å…¥app keyé‚„æœ‰app secret è¦å¾dropbox developer consoleé‚£é‚Šå–å¾—
+æœ€å¾Œæ˜¯ç¢ºèªdropboxè®€å–çš„è³‡æ–™ç¯„åœ
+æ¸¬è©¦ä¸Šå‚³æª”æ¡ˆ
 ./dropbox-uploader.sh upload ip.txt /
-4.±N¬d¸ßIP¸ò¤W¶Ç«Ø¥ß±Æµ{
-±N­ì¥»ªºipcheck.sh¥[¤J³Ì«á¤@¦æ
+4.å°‡æŸ¥è©¢IPè·Ÿä¸Šå‚³å»ºç«‹æ’ç¨‹
+å°‡åŸæœ¬çš„ipcheck.shåŠ å…¥æœ€å¾Œä¸€è¡Œ
 ./dropbox-uploader.sh upload ip.txt /
-«Ø¥ß±Æµ{
+å»ºç«‹æ’ç¨‹
 crontab -e
-©w®É¨C¤Ñ12ÂI¤W¶Ç
+å®šæ™‚æ¯å¤©12é»ä¸Šå‚³
 0 12 * * * bash ipcheck.sh
-ÀË¬d¬O§_¦³«Ø¥ß±Æµ{
+æª¢æŸ¥æ˜¯å¦æœ‰å»ºç«‹æ’ç¨‹
 crontab -l
-¦³­è­èªº¸ê®Æ´N§¹¦¨
+æœ‰å‰›å‰›çš„è³‡æ–™å°±å®Œæˆ
 
 
 
