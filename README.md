@@ -2,7 +2,7 @@
 ##Main purpose:
 記錄在樹梅派上面簡單設定Apache2跟一些其他相關的服務
 
-目前計畫包含了LAMP、LEMP還有DNS的設定
+目前計畫包含了LAMP(Linux、Apache、MySQL、PHP)、LEMP(Linux、Nginx、MySQL、PHP)還有DNS的設定
 
 ## Tools:
 
